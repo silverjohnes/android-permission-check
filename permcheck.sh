@@ -42,7 +42,6 @@ else
     echo "${bold}Обнаружены запрещенные пермишены:${normal}"
     for var in "${intersecting_permissions[@]}"; do
         echo "$var"
-        echo ""
     done
+    echo ""
 fi
-
