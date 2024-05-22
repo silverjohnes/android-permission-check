@@ -28,9 +28,15 @@ for var in "${permissions_array[@]}"; do
     done
 done
 
-# Вывод результатов
+# Вывод списка имеющихся в приложении пермишенов
+permissions=${permissions/package: /}
+echo "Список пермишенов в приложении $permissions"
+echo ""
+
+
+# Вывод списка запрещенных пермишенов
 if [ ${#intersecting_permissions[@]} -eq 0 ]; then
-    echo "Нет запрещенных пермишенов."
+    echo "${bold}Нет запрещенных пермишенов.${normal}"
     echo ""
 else
     echo "${bold}Обнаружены запрещенные пермишены:${normal}"
@@ -39,3 +45,4 @@ else
         echo ""
     done
 fi
+
