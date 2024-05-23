@@ -30,6 +30,7 @@ done
 
 # Вывод списка имеющихся в приложении пермишенов
 permissions=${permissions/package: /}
+echo ""
 echo "Список пермишенов в приложении $permissions"
 echo ""
 
