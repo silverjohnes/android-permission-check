@@ -29,10 +29,16 @@ for var in "${permissions_array[@]}"; do
 done
 
 # Вывод списка имеющихся в приложении пермишенов
+echo ""
 permissions=${permissions/package: /}
-echo ""
-echo "Список пермишенов в приложении $permissions"
-echo ""
+IFS=$'\n' read -d '' -r -a parts <<< "$permissions"
+echo "Список пермишенов в приложении ${parts[0]}:"
+permlist=""
+for ((i = 1; i < ${#parts[@]}; i++)); do
+    permlist="$permlist${parts[i]}"$'\n'
+done
+
+echo "$permlist"
 
 
 # Вывод списка запрещенных пермишенов
